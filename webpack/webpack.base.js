@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-08 13:40:33
+ * LastEditTime  2023-10-08 16:18:34
  * Description  file content
  */
 const path = require("path");
@@ -60,7 +60,7 @@ module.exports = {
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 25 * 1024, // 25kb
+            maxSize: 20 * 1024, // 25kb
           },
         },
         generator: {
