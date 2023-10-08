@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:22:01
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-08 11:28:11
+ * LastEditTime  2023-10-08 16:17:06
  * Description  file content
  */
 const { merge } = require("webpack-merge");
@@ -15,7 +15,20 @@ module.exports = merge(base, {
     rules: [
       {
         test: /\.(css|less)$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                mode: "local",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+              },
+            },
+          },
+          "less-loader",
+        ],
+        sideEffects: true,
         exclude: /node_modules/,
       },
     ],
