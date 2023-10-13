@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:22:11
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-08 13:36:55
+ * LastEditTime  2023-10-09 13:37:20
  * Description  file content
  */
 const path = require("path");
@@ -26,7 +26,7 @@ module.exports = merge(base, {
       {
         test: /\.(css|less)$/,
         use: [
-          MiniCssExtractPlugin.loader, // 使用 MiniCssExtractPlugin.loader 代替 style-loader，提取css到单独的文件
+          MiniCssExtractPlugin.loader, // 提取css到单独的文件，使用 MiniCssExtractPlugin.loader 代替 style-loader，
           "css-loader",
           {
             loader: "postcss-loader",
@@ -38,7 +38,6 @@ module.exports = merge(base, {
               },
             },
           },
-
           "less-loader",
         ],
         // 排除 node_modules 目录
