@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-08 16:18:34
+ * LastEditTime  2023-10-13 17:19:08
  * Description  file content
  */
 const path = require("path");
@@ -72,6 +72,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../index.html"), // 使用自定义模板
+    }),
+    new webpack.ProvidePlugin({
+      process: "process",
+      // api: ['@/services/api/index', 'default'],
+      useHistory: ["react-router-dom", "useHistory"],
+      moment: "moment",
+      React: "react",
     }),
   ],
 };

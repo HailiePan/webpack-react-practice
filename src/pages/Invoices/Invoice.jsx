@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-12 15:59:28
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-13 15:36:03
+ * LastEditTime  2023-10-13 17:52:34
  * Description  file content
  */
 import React from "react";
@@ -19,8 +19,12 @@ export default function Invoice() {
 
   return (
     <div>
-      发票{params.id}详情页面哈哈哈
-      <Button type="link" onClick={() => setSearchParams({ a: "a1" })}>
+      <p> 发票{params.id}详情页面，获取动态路由参数</p>
+      <p>
+        获取路径?号后的参数a等于{searchParams.get("a")}，b等于
+        {searchParams.get("b")}
+      </p>
+      <Button type="link" onClick={() => setSearchParams({ a: "a1", b: "b1" })}>
         修改页面路径参数
       </Button>
     </div>

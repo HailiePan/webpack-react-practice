@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@ant-design/icons': ^5.2.6
   '@babel/core': ^7.23.0
   '@babel/preset-env': ^7.22.20
   '@babel/preset-react': ^7.22.15
@@ -29,6 +30,7 @@ specifiers:
   webpack-merge: ^5.9.0
 
 dependencies:
+  '@ant-design/icons': registry.npmmirror.com/@ant-design/icons/5.2.6_biqbaboplfbrettd7655fr4n2y
   antd: registry.npmmirror.com/antd/5.9.4_biqbaboplfbrettd7655fr4n2y
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
