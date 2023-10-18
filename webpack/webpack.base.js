@@ -2,9 +2,10 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-13 17:19:08
+ * LastEditTime  2023-10-18 11:31:19
  * Description  file content
  */
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 

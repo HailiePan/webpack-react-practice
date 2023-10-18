@@ -2,9 +2,10 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:22:01
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-09 13:46:41
+ * LastEditTime  2023-10-18 10:21:19
  * Description  file content
  */
+
 const { merge } = require("webpack-merge");
 const base = require("./webpack.base.js");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
