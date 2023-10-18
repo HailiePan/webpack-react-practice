@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-18 11:31:19
+ * LastEditTime  2023-10-18 17:15:43
  * Description  file content
  */
 const webpack = require("webpack");
@@ -76,7 +76,7 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       process: "process",
-      // api: ['@/services/api/index', 'default'],
+      api: ["@/services/index", "default"],
       useHistory: ["react-router-dom", "useHistory"],
       moment: "moment",
       React: "react",

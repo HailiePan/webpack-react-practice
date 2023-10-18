@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:22:01
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-18 10:21:19
+ * LastEditTime  2023-10-18 17:35:12
  * Description  file content
  */
 
@@ -38,5 +38,14 @@ module.exports = merge(base, {
   devServer: {
     open: true, // 编译完自动打开浏览器
     port: 8080,
+    proxy: {
+      // "/lewis/api/appStore": {
+      //   target: "http://10.2.2.21:17180",
+      //   pathRewrite: { "/lewis": "" },
+      // },
+      "/api/appStore": {
+        target: "http://10.2.2.21:17180",
+      },
+    },
   },
 });
