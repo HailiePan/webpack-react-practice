@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-24 18:06:25
+ * LastEditTime  2023-11-02 17:50:36
  * Description  file content
  */
 const webpack = require("webpack");
@@ -13,7 +13,7 @@ module.exports = {
   entry: path.resolve(__dirname, "../src/index.jsx"),
   output: {
     filename: "[name].[hash:8].js", // 打包的文件名
-    publicPath: "/", // 二级页面刷新不白屏
+    publicPath: "/", // 解决二级路由刷新不白屏
   },
   resolve: {
     // 配置 extensions 来告诉 webpack 在没有书写后缀时，以什么样的顺序去寻找文件

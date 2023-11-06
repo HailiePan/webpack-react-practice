@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:17:04
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-18 17:42:24
+ * LastEditTime  2023-11-02 17:39:45
  * Description  file content
  */
 import React, { useEffect } from "react";
@@ -30,6 +30,7 @@ const Home = () => {
       pageSize: 10,
     });
   };
+
   return (
     <div className={styles?.wrapper}>
       <p>welcome to the homepage</p>

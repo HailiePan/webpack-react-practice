@@ -1,0 +1,165 @@
+.wrap {
+  position: relative;
+  min-width: 200px;
+  min-height: 200px;
+  color: #fff;
+  padding: 10px;
+
+  .topLeftLine {
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: calc((100% - 228px - 20px) / 2);
+    height: 1px;
+    background-color: #b2e3ff;
+  }
+
+  .topRightLine {
+    position: absolute;
+    right: 6px;
+    top: 0;
+    width: calc((100% - 228px - 20px) / 2);
+    height: 1px;
+    background-color: #b2e3ff;
+  }
+
+  .bottomLeftLine {
+    position: absolute;
+    left: 6px;
+    bottom: 0;
+    width: calc((100% - 228px - 20px) / 2);
+    height: 1px;
+    background-color: #b2e3ff;
+  }
+
+  .bottomRightLine {
+    position: absolute;
+    right: 6px;
+    bottom: 0;
+    width: calc((100% - 228px - 20px) / 2);
+    height: 1px;
+    background-color: #b2e3ff;
+  }
+
+  .leftTopLine {
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    width: 1px;
+    height: calc((100% - 228px - 30px) / 2);
+
+    background-color: #b2e3ff;
+  }
+
+  .leftBottomLine {
+    position: absolute;
+    left: 0px;
+    bottom: 12px;
+    width: 1px;
+    height: calc((100% - 228px - 50px) / 2);
+
+    background-color: #b2e3ff;
+  }
+
+  .rightTopLine {
+    position: absolute;
+    right: 0px;
+    top: 12px;
+    width: 1px;
+    height: calc((100% - 228px - 30px) / 2);
+
+    background-color: #b2e3ff;
+  }
+
+  .rightBottomLine {
+    position: absolute;
+    right: 0px;
+    bottom: 12px;
+    width: 1px;
+    height: calc((100% - 228px - 50px) / 2);
+
+    background-color: #b2e3ff;
+  }
+
+  .topLine {
+    position: absolute;
+    left: 50%;
+    top: -3px;
+    transform: translate(-50%, 0);
+    width: 228px;
+    height: 6px;
+    background: url("./assets/line-top.png") center center no-repeat;
+  }
+
+  .bottomLine {
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    transform: translate(-50%, 0);
+    width: 228px;
+    height: 6px;
+    background: url("./assets/line-top.png") center center no-repeat;
+  }
+
+  .leftLine {
+    position: absolute;
+    left: -114px;
+    top: 50%;
+    width: 228px;
+    height: 6px;
+    background: url("./assets/line-top.png") center center no-repeat;
+    transform: rotate(90deg);
+  }
+  .rightLine {
+    position: absolute;
+    right: -114px;
+    top: 50%;
+    width: 228px;
+    height: 6px;
+    background: url("./assets/line-top.png") center center no-repeat;
+    transform: rotate(90deg);
+  }
+
+  .leftTopJiao {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: url("./assets/jiao.png") center center no-repeat;
+  }
+  .leftBottomJiao {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    background: url("./assets/jiao.png") center center no-repeat;
+    transform: rotateX(180deg);
+  }
+
+  .rightBottomJiao {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    background: url("./assets/jiao.png") center center no-repeat;
+    transform: rotate(-180deg);
+  }
+
+  .rightTopJiao {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: url("./assets/jiao.png") center center no-repeat;
+    transform: rotateY(180deg);
+  }
+
+  .content {
+    background-color: #0c1425;
+    height: 100%;
+  }
+}
