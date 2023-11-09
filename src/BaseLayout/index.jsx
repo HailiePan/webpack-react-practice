@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:28:32
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-13 18:14:41
+ * LastEditTime  2023-11-08 09:51:54
  * Description  file content
  */
 
@@ -96,11 +96,7 @@ export default function BaseLayout() {
           />
         </Sider>
 
-        <Layout
-          style={{
-            padding: "0 24px 24px",
-          }}
-        >
+        <Layout className={styles.rightLayout}>
           <Breadcrumb
             style={{
               margin: "16px 0",

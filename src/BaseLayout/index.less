@@ -19,10 +19,16 @@ body {
   width: 200;
   background: @colorBgContainer;
 }
+.rightLayout {
+  padding: 0 24px 24px;
+}
 
 .content {
-  padding: 24;
+  padding: 24px;
   margin: 0;
-  min-height: 280;
+  min-height: 280px;
   background: @colorBgContainer;
+  // border: 1px solid green; // 高度没有被页面的高度撑开
+  height: auto;
+  overflow-y: scroll;
 }

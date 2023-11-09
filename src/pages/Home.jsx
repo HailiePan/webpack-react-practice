@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:17:04
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-02 17:39:45
+ * LastEditTime  2023-11-08 10:10:34
  * Description  file content
  */
 import React, { useEffect } from "react";
@@ -43,8 +43,11 @@ const Home = () => {
         <div className={styles.item}></div>
         <div className={styles.item}></div>
       </div>
-      <img src={coff} alt="" />
-      <img src={coffee} alt="" />
+
+      <div className={styles.showImg}>
+        <img src={coff} alt="" />
+        <img src={coffee} alt="" />
+      </div>
     </div>
   );
 };
