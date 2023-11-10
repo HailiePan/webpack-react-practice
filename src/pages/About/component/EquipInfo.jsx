@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-11-08 16:03:26
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-09 14:13:20
+ * LastEditTime  2023-11-09 14:16:58
  * Description 使用父组件传入的值
  */
 import React, { useEffect, useState } from "react";
@@ -28,6 +28,7 @@ export default function EquipInfo(props) {
     <div>
       <p>数量：{count}</p>
       <Input
+        style={{ width: "200px" }}
         value={testShowValue}
         onChange={(e) => {
           setTestShowValue(e.target.value);

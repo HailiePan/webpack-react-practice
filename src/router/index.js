@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:13:27
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-13 17:38:20
+ * LastEditTime  2023-11-10 17:09:09
  * Description  file content
  */
 import React from "react";
@@ -16,6 +16,7 @@ import Invoice from "@/pages/Invoices/Invoice";
 import Pending from "@/pages/Invoices/Pending";
 import Complete from "@/pages/Invoices/Complete";
 import About from "@/pages/About";
+import Article from "@/pages/Article";
 import ControlRoomFirstPage from "@/pages/ControlRoomFirstPage";
 
 const routes = [
@@ -24,6 +25,7 @@ const routes = [
     element: <BaseLayout />,
     children: [
       { path: "/home", element: <Home /> },
+      { path: "/article", element: <Article /> },
       {
         path: "/invoices",
         element: <Invoices />,

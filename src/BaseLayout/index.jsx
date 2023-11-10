@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:28:32
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-08 09:51:54
+ * LastEditTime  2023-11-10 17:10:56
  * Description  file content
  */
 
@@ -32,6 +32,7 @@ export default function BaseLayout() {
         </NavLink>
       ),
     },
+
     {
       key: 1,
       icon: React.createElement(LaptopOutlined),
@@ -72,6 +73,11 @@ export default function BaseLayout() {
       key: 3,
       icon: React.createElement(NotificationOutlined),
       label: <NavLink to="controlRoomFirstPage">驾驶舱页面</NavLink>,
+    },
+    {
+      key: 4,
+      icon: React.createElement(LaptopOutlined),
+      label: <NavLink to="article">文章</NavLink>,
     },
   ];
 
