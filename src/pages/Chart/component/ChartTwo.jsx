@@ -1,21 +1,14 @@
 /*
  * Author  hailie.pan
- * Date  2023-11-10 17:26:11
+ * Date  2023-11-16 16:50:59
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-17 10:10:02
+ * LastEditTime  2023-11-17 10:15:38
  * Description  file content
  */
-/*
- * Author  hailie.pan
- * Date  2023-08-11 11:12:59
- * LastEditors  hailie.pan
- * LastEditTime  2023-11-10 17:18:26
- * Description  file content
- */
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect } from "react";
 import * as echarts from "echarts";
 
-function LineChart({ title, chartData, style, className }) {
+export default function ChartTwo({ title, chartData, style, className }) {
   const { xAxisData, seriesData } = chartData;
 
   let chartInstance;
@@ -35,6 +28,7 @@ function LineChart({ title, chartData, style, className }) {
           color: "rgb(180,223,253)",
         },
       },
+
       axisTick: {
         show: true,
         length: 2,
@@ -50,7 +44,7 @@ function LineChart({ title, chartData, style, className }) {
           color: "rgb(180,223,253)",
         },
         // 默认y轴字体大小
-        fontSize: 10,
+        fontSize: 14,
         // margin:文字到y轴的距离
         margin: 4,
       },
@@ -104,17 +98,7 @@ function LineChart({ title, chartData, style, className }) {
       },
       tooltip: {
         trigger: "axis",
-        //   axisPointer: {
-        //     label: {
-        //       show: true,
-        //       backgroundColor: '#fff',
-        //       color: '#556677',
-        //       borderColor: 'rgba(0,0,0,0)'
-        //     },
-        //     lineStyle: {
-        //       width: 0
-        //     }
-        //   },
+
         backgroundColor: "#2b4a78",
         textStyle: {
           color: "#fff",
@@ -122,8 +106,10 @@ function LineChart({ title, chartData, style, className }) {
         padding: [10, 10],
       },
       grid: {
-        top: 50,
-        bottom: 20,
+        // top: 50,
+        // bottom: 30,
+        left: "4%",
+        right: "4%",
       },
       xAxis: [
         {
@@ -149,7 +135,7 @@ function LineChart({ title, chartData, style, className }) {
               color: "rgb(180,223,253)",
             },
             // 默认x轴字体大小
-            fontSize: 10,
+            fontSize: 14,
             // margin:文字到x轴的距离
             margin: 4,
           },
@@ -166,11 +152,11 @@ function LineChart({ title, chartData, style, className }) {
     if (renderedInstance) {
       renderedInstance.clear();
     }
-
     chartInstance = echarts.init(statusLineChart.current);
     chartInstance.setOption(getOption(), true);
     chartInstance.resize();
 
+    // 监听窗口尺寸变化
     const resizeListener = window.addEventListener("resize", () => {
       chartInstance.resize();
     });
@@ -179,8 +165,5 @@ function LineChart({ title, chartData, style, className }) {
       window.removeEventListener("resize", resizeListener);
     };
   }, [chartData]);
-
-  return <div ref={statusLineChart} className={className} style={style} />;
+  return <div ref={statusLineChart} style={style} />;
 }
-
-export default LineChart;

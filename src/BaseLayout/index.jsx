@@ -2,11 +2,11 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:28:32
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-10 17:10:56
+ * LastEditTime  2023-11-16 15:41:44
  * Description  file content
  */
 
-import React from "react";
+import React, { useCallback, useState, useMemo } from "react";
 import {
   LaptopOutlined,
   NotificationOutlined,
@@ -22,12 +22,61 @@ import styles from "./index.less";
 const { Header, Content, Sider } = Layout;
 
 export default function BaseLayout() {
+  // console.log("routes", routes);
+  const [selectedMenuKeys, setSelectedMenuKeys] = useState([]);
+
+  // useMemo缓存菜单的计算方法，避免每次刷新时都计算一遍
+  // 这个菜单的算法还是不太优美，不好维护
+  let showMenu = useMemo(
+    () =>
+      routes
+        .map((item, index) => {
+          console.log("000");
+          if (item.children) {
+            const arr2 = item.children.map((c, cIndex) => {
+              return {
+                key: cIndex,
+                icon: React.createElement(UserOutlined),
+                name: c.name,
+                label: (
+                  <NavLink to={c.path} state={"From App"}>
+                    {c.name}
+                  </NavLink>
+                ),
+                children: c?.children?.map((t, tIndex) => ({
+                  key: `${cIndex}-${tIndex}`,
+                  icon: React.createElement(UserOutlined),
+                  name: t.name,
+                  label: <NavLink to={t.path}>{t.name}</NavLink>,
+                })),
+              };
+            });
+            return arr2;
+          } else {
+            return {
+              key: "dandu" + index,
+              icon: React.createElement(UserOutlined),
+              name: item.name,
+              label: (
+                <NavLink to={item.path} state={"From App"}>
+                  {item.name}
+                </NavLink>
+              ),
+            };
+          }
+        })
+        .flat(), // arr2是个数组，放到showMenu数组里需要拉平
+    []
+  );
+  showMenu.flat();
+  // console.log("showMenu", showMenu);
+
   const menuArr = [
     {
       key: 0,
       icon: React.createElement(UserOutlined),
       label: (
-        <NavLink to="home" state={"From App"}>
+        <NavLink to="/home" state={"From App"}>
           首页
         </NavLink>
       ),
@@ -81,6 +130,10 @@ export default function BaseLayout() {
     },
   ];
 
+  const onSelectMenu = ({ item, key, keyPath, selectedKeys, domEvent }) => {
+    setSelectedMenuKeys([key]);
+  };
+
   return (
     <Layout className={styles.layoutWrap}>
       <Header className={styles.header}>
@@ -98,7 +151,9 @@ export default function BaseLayout() {
               height: "100%",
               borderRight: 0,
             }}
-            items={menuArr}
+            items={showMenu}
+            selectedKeys={selectedMenuKeys}
+            onSelect={onSelectMenu}
           />
         </Sider>
 

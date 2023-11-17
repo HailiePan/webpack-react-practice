@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:38:27
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-13 17:56:49
+ * LastEditTime  2023-11-16 16:21:01
  * Description 单独的页面
  */
 import React from "react";
@@ -17,7 +17,13 @@ export default function ControlRoomFirstPage() {
   const navigate = useNavigate();
   return (
     <div className={styles.wrap}>
-      驾驶舱页面
+      <p>驾驶舱页面</p>
+
+      <ul style={{ marginBottom: "20px" }}>
+        解决的问题：
+        <li>页面独立显示，不显示BaseLayout的公共组件</li>
+      </ul>
+
       <Button
         type="link"
         onClick={() => navigate("/home?fromPage=from the ControlRoomFirstPage")}

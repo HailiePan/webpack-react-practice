@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-11-10 17:07:36
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-10 18:30:57
+ * LastEditTime  2023-11-16 15:50:31
  * Description  memo\useMemo缓存子组件不更新
  */
 import React, { useState, memo, useMemo } from "react";
@@ -53,6 +53,14 @@ export default function Article() {
 
   return (
     <div>
+      <ul style={{ marginBottom: "20px" }}>
+        解决的问题：
+        <li>
+          缓存子组件的参数，使子组件
+          在父组件更新其他参数时不更新，减少性能消耗；
+        </li>
+      </ul>
+
       <Steps current={1}>
         {stepsData.map((item, index) => (
           <Steps.Step
