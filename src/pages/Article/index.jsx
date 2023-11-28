@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-11-10 17:07:36
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-16 15:50:31
+ * LastEditTime  2023-11-28 10:13:30
  * Description  memo\useMemo缓存子组件不更新
  */
 import React, { useState, memo, useMemo } from "react";
@@ -51,6 +51,27 @@ export default function Article() {
     "wait",
   ]);
 
+  const chartData = useMemo(
+    () => ({
+      leftYName: "CPU负荷率（%）",
+      rightYName: "内存（%）",
+      xAxisData: ["08-01", "08-02", "08-03", "08-04", "08-05", "08-06"],
+      seriesData: [
+        {
+          name: "CPU负荷率（%）",
+          data: [10, 10, 30, 12, 15, 3, 7],
+          color: "#9effff",
+        },
+        {
+          name: "内存（%）",
+          data: [50, 20, 70, 40, 50, 60, 10],
+          color: "rgb(255, 199, 58)",
+        },
+      ],
+    }),
+    []
+  );
+
   return (
     <div>
       <ul style={{ marginBottom: "20px" }}>
@@ -59,6 +80,8 @@ export default function Article() {
           缓存子组件的参数，使子组件
           在父组件更新其他参数时不更新，减少性能消耗；
         </li>
+        <li>useMemo 每次重新渲染的时候能够缓存计算的结果</li>
+        <li>在组件顶层调用 useMemo 以在重新渲染之间缓存计算结果：</li>
       </ul>
 
       <Steps current={1}>
@@ -83,26 +106,7 @@ export default function Article() {
         <LineChart
           style={{ height: 200 }}
           title="装置软件状态检测"
-          chartData={useMemo(
-            () => ({
-              leftYName: "CPU负荷率（%）",
-              rightYName: "内存（%）",
-              xAxisData: ["08-01", "08-02", "08-03", "08-04", "08-05", "08-06"],
-              seriesData: [
-                {
-                  name: "CPU负荷率（%）",
-                  data: [10, 10, 30, 12, 15, 3, 7],
-                  color: "#9effff",
-                },
-                {
-                  name: "内存（%）",
-                  data: [50, 20, 70, 40, 50, 60, 10],
-                  color: "rgb(255, 199, 58)",
-                },
-              ],
-            }),
-            []
-          )}
+          chartData={chartData}
         />
       </div>
     </div>

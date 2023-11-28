@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:13:27
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-16 15:30:57
+ * LastEditTime  2023-11-28 10:30:45
  * Description  file content
  */
 import React from "react";
@@ -19,6 +19,7 @@ import About from "@/pages/About";
 import Article from "@/pages/Article";
 import ControlRoomFirstPage from "@/pages/ControlRoomFirstPage";
 import Chart from "@/pages/Chart";
+import Info from "@/pages/Info";
 
 const routes = [
   {
@@ -60,6 +61,11 @@ const routes = [
         path: "/chart",
         element: <Chart />,
         name: "图表",
+      },
+      {
+        path: "/info",
+        element: <Info />,
+        name: "信息",
       },
     ],
   },

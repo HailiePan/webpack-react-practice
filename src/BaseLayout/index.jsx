@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-13 17:28:32
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-16 15:41:44
+ * LastEditTime  2023-11-28 10:29:15
  * Description  file content
  */
 
@@ -17,7 +17,7 @@ import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { Link, NavLink, useRoutes, Navigate, Outlet } from "react-router-dom";
 
 import { routes } from "@/router";
-
+import StateContext from "./data.js";
 import styles from "./index.less";
 const { Header, Content, Sider } = Layout;
 
@@ -31,7 +31,6 @@ export default function BaseLayout() {
     () =>
       routes
         .map((item, index) => {
-          console.log("000");
           if (item.children) {
             const arr2 = item.children.map((c, cIndex) => {
               return {
@@ -134,6 +133,8 @@ export default function BaseLayout() {
     setSelectedMenuKeys([key]);
   };
 
+  const [state, setState] = useState("playing");
+
   return (
     <Layout className={styles.layoutWrap}>
       <Header className={styles.header}>
@@ -167,9 +168,12 @@ export default function BaseLayout() {
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <Content className={styles.content}>
-            <Outlet />
-          </Content>
+
+          <StateContext.Provider value={{ state, setState }}>
+            <Content className={styles.content}>
+              <Outlet />
+            </Content>
+          </StateContext.Provider>
         </Layout>
       </Layout>
     </Layout>

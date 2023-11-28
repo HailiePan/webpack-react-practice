@@ -2,7 +2,7 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:17:04
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-16 15:42:54
+ * LastEditTime  2023-11-28 10:02:23
  * Description  file content
  */
 import React, { useEffect } from "react";
@@ -37,8 +37,8 @@ const Home = () => {
 
       <ul>
         解决的问题：
-        <li>获取路径上?号后的参数；</li>
-        <li>获取NavLink中state的参数；</li>
+        {/* <li>获取路径上?号后的参数；</li>
+        <li>获取NavLink中state的参数；</li> */}
         <li>
           flex布局，项目的缩小放大比例：
           <br />
@@ -49,10 +49,9 @@ const Home = () => {
         <li>使用特定字体样式;</li>
         <li>加载图片</li>
       </ul>
-      <p className={styles.fontStyle}>使用字体样式</p>
 
-      <p>页面跳转时获取state里的参数{location.state}</p>
-      <p>页面跳转时获取?号后面的参数{searchParams.get("fromPage")}</p>
+      {/* <p>页面跳转时获取state里的参数{location.state}</p>
+      <p>页面跳转时获取?号后面的参数{searchParams.get("fromPage")}</p> */}
 
       <div className={styles.box}>
         <div className={styles.item}></div>
@@ -60,7 +59,7 @@ const Home = () => {
         <div className={styles.item}></div>
         <div className={styles.item}></div>
       </div>
-
+      <p className={styles.fontStyle}>使用字体样式</p>
       <div className={styles.showImg}>
         <img src={coff} alt="" />
         <img src={coffee} alt="" />
