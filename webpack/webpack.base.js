@@ -2,25 +2,26 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:21:52
  * LastEditors  hailie.pan
- * LastEditTime  2023-11-02 17:50:36
+ * LastEditTime  2023-12-05 15:21:39
  * Description  file content
  */
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, "../src/index.jsx"),
+  entry: path.resolve(__dirname, '../src/index.jsx'),
   output: {
-    filename: "[name].[hash:8].js", // 打包的文件名
-    publicPath: "/", // 解决二级路由刷新不白屏
+    filename: '[name].[hash:8].js', // 打包的文件名
+    publicPath: '/' // 解决二级路由刷新白屏
   },
   resolve: {
     // 配置 extensions 来告诉 webpack 在没有书写后缀时，以什么样的顺序去寻找文件
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".mjs"], // 如果项目中只有 tsx 或 ts 可以将其写在最前面
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'], // 如果项目中只有 tsx 或 ts 可以将其写在最前面
     alias: {
-      "@": path.resolve(__dirname, "../src"),
-    },
+      '@': path.resolve(__dirname, '../src')
+    }
   },
 
   module: {
@@ -29,23 +30,23 @@ module.exports = {
         test: /.(jsx?)|(tsx?)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: [["@babel/preset-env"], ["@babel/preset-react"]],
-          },
-        },
+            presets: [['@babel/preset-env'], ['@babel/preset-react']]
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
-        type: "asset",
+        type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 20 * 1024, // 25kb
-          },
+            maxSize: 20 * 1024 // 25kb
+          }
         },
         generator: {
-          filename: "assets/imgs/[name].[hash:8][ext]",
-        },
+          filename: 'assets/imgs/[name].[hash:8][ext]'
+        }
         // use: [
         //   {
         //     loader: "url-loader",
@@ -59,28 +60,31 @@ module.exports = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
-        type: "asset",
+        type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 20 * 1024, // 25kb
-          },
+            maxSize: 20 * 1024 // 25kb
+          }
         },
         generator: {
-          filename: "assets/fonts/[name].[hash:8][ext]",
-        },
-      },
-    ],
+          filename: 'assets/fonts/[name].[hash:8][ext]'
+        }
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../index.html"), // 使用自定义模板
+      template: path.resolve(__dirname, '../index.html') // 使用自定义模板
     }),
     new webpack.ProvidePlugin({
-      process: "process",
-      api: ["@/services/index", "default"],
-      useHistory: ["react-router-dom", "useHistory"],
-      moment: "moment",
-      React: "react",
+      process: 'process',
+      api: ['@/services/index', 'default'],
+      useHistory: ['react-router-dom', 'useHistory'],
+      moment: 'moment',
+      React: 'react'
     }),
-  ],
+    new CopyPlugin({
+      patterns: [{ from: 'public', to: 'public' }]
+    })
+  ]
 };

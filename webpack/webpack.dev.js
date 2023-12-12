@@ -2,37 +2,37 @@
  * Author  hailie.pan
  * Date  2023-10-07 17:22:01
  * LastEditors  hailie.pan
- * LastEditTime  2023-10-24 17:39:42
+ * LastEditTime  2023-12-05 10:14:22
  * Description  file content
  */
 
-const { merge } = require("webpack-merge");
-const base = require("./webpack.base.js");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const { merge } = require('webpack-merge');
+const base = require('./webpack.base.js');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(base, {
-  mode: "development", // 开发模式
+  mode: 'development', // 开发模式
   module: {
     rules: [
       {
         test: /\.(css|less)$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: {
-                mode: "local",
-                localIdentName: "[path][name]__[local]--[hash:base64:5]",
-              },
-            },
+                mode: 'local',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            }
           },
-          "less-loader",
+          'less-loader'
         ],
         sideEffects: true,
-        exclude: /node_modules/,
-      },
-    ],
+        exclude: /node_modules/
+      }
+    ]
   },
   plugins: [new ReactRefreshWebpackPlugin()], // 添加热更新插件]
   devServer: {
@@ -44,9 +44,9 @@ module.exports = merge(base, {
       //   target: "http://10.2.2.21:17180",
       //   pathRewrite: { "/lewis": "" },
       // },
-      "/api/appStore": {
-        target: "http://10.2.2.21:17180",
-      },
-    },
-  },
+      '/api/appStore': {
+        target: 'http://10.2.2.21:17180'
+      }
+    }
+  }
 });
