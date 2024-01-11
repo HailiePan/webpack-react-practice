@@ -1,4 +1,11 @@
 /*
+ * @Author: Hailie.Pan
+ * @Date: 2023-11-28 10:02:42
+ * @LastEditors: Hailie.Pan
+ * @LastEditTime: 2024-01-11 10:35:24
+ * @Description: 
+ */
+/*
  * Author  hailie.pan
  * Date  2023-10-07 17:17:04
  * LastEditors  hailie.pan
@@ -18,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      fetchList();
+      // fetchList();
     }, 300);
     return () => clearTimeout(timeout);
   }, []);

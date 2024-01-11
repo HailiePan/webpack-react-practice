@@ -1,4 +1,11 @@
 /*
+ * @Author: Hailie.Pan
+ * @Date: 2023-11-28 10:30:45
+ * @LastEditors: Hailie.Pan
+ * @LastEditTime: 2024-01-11 10:41:08
+ * @Description: 
+ */
+/*
  * Author  hailie.pan
  * Date  2023-10-13 17:13:27
  * LastEditors  hailie.pan
@@ -20,6 +27,7 @@ import Article from "@/pages/Article";
 import ControlRoomFirstPage from "@/pages/ControlRoomFirstPage";
 import Chart from "@/pages/Chart";
 import Info from "@/pages/Info";
+import Animation from '@/pages/Animation'
 
 const routes = [
   {
@@ -66,6 +74,11 @@ const routes = [
         path: "/info",
         element: <Info />,
         name: "信息",
+      },
+      {
+        path: "/animation",
+        element: <Animation />,
+        name: "动画",
       },
     ],
   },
