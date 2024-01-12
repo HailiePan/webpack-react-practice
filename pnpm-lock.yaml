@@ -8,6 +8,9 @@ dependencies:
   '@ant-design/icons':
     specifier: ^5.2.6
     version: registry.npmmirror.com/@ant-design/icons@5.2.6(react-dom@18.2.0)(react@18.2.0)
+  '@gsap/react':
+    specifier: ^2.0.2
+    version: 2.0.2(react@18.2.0)
   antd:
     specifier: ^5.9.4
     version: registry.npmmirror.com/antd@5.9.4(react-dom@18.2.0)(react@18.2.0)
@@ -108,6 +111,14 @@ devDependencies:
     version: registry.npmmirror.com/webpack-merge@5.9.0
 
 packages:
+
+  /@gsap/react@2.0.2(react@18.2.0):
+    resolution: {integrity: sha512-Uo2lOBlGcwmkIE9EcPdsyDfg+DRAoboVvuWgvVIrsJ2tIZHcpFab82YNV0iWj9CNfTzIqGP44ziXqsCMkc8OEw==, tarball: https://registry.npmmirror.com/@gsap/react/-/react-2.0.2.tgz}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
 
   /errno@0.1.8:
     resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==, tarball: https://registry.npmmirror.com/errno/-/errno-0.1.8.tgz}
