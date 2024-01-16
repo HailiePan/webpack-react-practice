@@ -6,15 +6,16 @@
  * Description  file content
  */
 
-import React, { useCallback, useState, useMemo } from 'react';
+import React, {useEffect, useCallback, useState, useMemo } from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-
 import { Link, NavLink, useRoutes, Navigate, Outlet } from 'react-router-dom';
-
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { routes } from '@/router';
 import StateContext from './data.js';
 import styles from './index.less';
+import ScrollAnimation from '@/pages/Animation/component/ScrollAnimation'
 const { Header, Content, Sider } = Layout;
 
 export default function BaseLayout() {
@@ -123,13 +124,40 @@ export default function BaseLayout() {
 
   const [state, setState] = useState('playing');
 
+  // useEffect(()=>{
+  //   gsap.registerPlugin(ScrollTrigger)
+  //     // 绿色方块
+  //     gsap.to("#ewrwer", { 
+  //       rotation: 900,
+  //       x:400,
+  //       duration: 1,
+  //       scrollTrigger: {
+  //         trigger: '#ewrwer', // 动画的元素
+  //         scroller: document.getElementById('21321'), // 滚动的元素
+  //         scrub: 2,
+  //         markers: true,
+  //       },
+      
+  //     });
+  // },[])
+
   return (
     <Layout className={styles.layoutWrap}>
+{/* 
+      <div className={styles.box} id='21321'>
+        <div className={styles.green} id='ewrwer'></div>
+        <div style={{height:'1000px'}} />
+      </div> */}
+
+      {/* <ScrollAnimation /> */}
+
+
       <Header className={styles.header}>
         <div className={styles.logo} />
 
         <h1>数字孪生系统</h1>
       </Header>
+      
       <Layout>
         <Sider className={styles.sider}>
           <Menu
@@ -158,7 +186,7 @@ export default function BaseLayout() {
           </Breadcrumb>
 
           <StateContext.Provider value={{ state, setState }}>
-            <Content className={styles.content}>
+            <Content className={styles.content} id='content'>
               <Outlet />
             </Content>
           </StateContext.Provider>

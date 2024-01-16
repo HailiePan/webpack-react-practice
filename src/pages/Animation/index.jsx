@@ -1,8 +1,12 @@
 import React ,{useRef, useEffect, useState}from 'react'
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import MoveOnPath from './component/MoveOnPath'
 import CanvasDraw from './component/CanvasDraw'
 import TimeLine from './component/TimeLine'
+import ScrollAnimation from './component/ScrollAnimation'
+import ScrollAnimation2 from './component/ScrollAnimation2'
+import MoveOnPathTwo from './component/MoveOnPathTwo'
 import styles from './index.module.less';
 
 export default function Animation() {
@@ -22,26 +26,36 @@ export default function Animation() {
         gsap.to(obj, {
             myNum: 200,
             myColor: "blue",
-            onUpdate: () => {console.log('onUpdate', obj.myNum, obj.myColor)},
+            onUpdate: () => {
+              // console.log('onUpdate', obj.myNum, obj.myColor)
+            },
             onComplete:() =>console.log('onComplete', obj.myNum, obj.myColor),
         });
 
       },[]);
 
+  
   return (
     <div className={styles.wrap}>
      
-
-
-
        {/* 在canvas中驱动元素绘制 */}
         {/* <CanvasDraw /> */}
 
         {/* 时间线动画 */}
-        <TimeLine />
+        {/* <TimeLine /> */}
 
         {/* 元素沿SVG路径移动 */}
         {/* <MoveOnPath /> */}
+
+        <MoveOnPathTwo />
+
+        {/* 滚动动画 */}
+        {/* <ScrollAnimation /> */}
+
+        {/* <ScrollAnimation2 /> */}
+
+
+
     </div>
   )
 }

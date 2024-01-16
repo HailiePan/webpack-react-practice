@@ -2,12 +2,16 @@
  * @Author: Hailie.Pan
  * @Date: 2024-01-12 16:48:55
  * @LastEditors: Hailie.Pan
- * @LastEditTime: 2024-01-12 17:35:38
+ * @LastEditTime: 2024-01-16 23:16:56
  * @Description: 
  */
 import React, { useEffect, useRef } from 'react'
 import { gsap } from "gsap";
-import { MotionPathPlugin} from 'gsap/all'
+// import { MotionPathPlugin} from 'gsap/all'
+import { PixiPlugin } from "gsap/PixiPlugin.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
+// import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
+
 import styles from './index.module.less';
 
 export default function MoveOnPath() {
@@ -25,15 +29,16 @@ export default function MoveOnPath() {
             motionPath: {
               path: "#path",
               align: "#path",
-              alignOrigin: [0.5, 0.5], //  //对齐原点
+              alignOrigin: [0.5,0.5], //  //对齐原点
               autoRotate: 90 // 沿路径方向旋转角度
+              // autoRotate:true
             }
           });
 
     },[])
   return (
     <div>
-        <h1>沿SVG路径移动</h1>
+      <h1>沿SVG路径移动</h1>
       <svg id="motionPath" class={styles.motionPath} viewBox="-20 0 557 190">
         <path id="path" fill="none" d="M8,102 C15,83 58,25 131,24 206,24 233,63 259,91 292,125 328,155 377,155 464,155 497,97 504,74"/>
         <g class={styles.astronaut} ref={astronautRef}>
@@ -59,6 +64,8 @@ export default function MoveOnPath() {
             </g>
         </g>
         </svg>
+
+     
     </div>
   )
 }

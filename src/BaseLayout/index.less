@@ -1,8 +1,28 @@
 body {
   margin: 0;
+  // height: 200vh;
 }
+ 
+
 .layoutWrap {
   height: 100vh;
+  overflow-y: auto;
+}
+
+.box{
+  height: 200px;
+  overflow-y: auto;
+  // border: 1px solid rgb(239, 200, 151);
+}
+.green{
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  border-radius: 4px;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 .header {
   display: flex;
@@ -35,6 +55,7 @@ body {
   min-height: 280px;
   background: @colorBgContainer;
   // border: 1px solid green; // 高度没有被页面的高度撑开
-  height: auto;
+  // height: auto;
   overflow-y: scroll;
+  border: 1px solid red;
 }
