@@ -1,6 +1,7 @@
 import React ,{useRef, useEffect, useState}from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import MoveBox from './component/MoveBox'
 import MoveOnPath from './component/MoveOnPath'
 import CanvasDraw from './component/CanvasDraw'
 import TimeLine from './component/TimeLine'
@@ -37,6 +38,7 @@ export default function Animation() {
   
   return (
     <div className={styles.wrap}>
+      <MoveBox />
      
        {/* 在canvas中驱动元素绘制 */}
         {/* <CanvasDraw /> */}
@@ -47,7 +49,8 @@ export default function Animation() {
         {/* 元素沿SVG路径移动 */}
         {/* <MoveOnPath /> */}
 
-        <MoveOnPathTwo />
+        {/* 模拟电流效果 */}
+        {/* <MoveOnPathTwo /> */}
 
         {/* 滚动动画 */}
         {/* <ScrollAnimation /> */}
