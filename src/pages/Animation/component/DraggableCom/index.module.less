@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 500px;
+  height: 500px;
+  background-color: antiquewhite;
+
+  .flair {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: rgb(127, 187, 255);
+
+    &:first-child {
+      background-color: rgb(255, 140, 0);
+    }
+    &:last-child {
+      background-color: rgb(95, 220, 199);
+    }
+  }
+}
