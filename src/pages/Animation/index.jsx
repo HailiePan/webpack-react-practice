@@ -2,7 +2,7 @@
  * @Author: Hailie.Pan
  * @Date: 2024-01-11 10:41:16
  * @LastEditors: Hailie.Pan
- * @LastEditTime: 2024-01-24 18:02:48
+ * @LastEditTime: 2024-01-31 20:05:00
  * @Description:
  */
 import React, { useRef, useEffect, useState } from 'react';
@@ -22,6 +22,10 @@ import styles from './index.module.less';
 export default function Animation() {
   let obj = { myNum: 10, myColor: 'red' };
 
+  let arr = [
+    { a: '1', b: '989' },
+    { a: '2', b: '80990' }
+  ];
   useEffect(() => {
     // stagger 依次执行动画
     // gsap.to([boxRef.current, boxRef2.current, boxRef3.current], {
@@ -34,9 +38,29 @@ export default function Animation() {
       myNum: 200,
       myColor: 'blue',
       onUpdate: () => {
-        console.log('onUpdate', obj.myColor);
+        // console.log('onUpdate', obj.myColor);
+      }
+      // onComplete: () => console.log('onComplete', obj.myNum, obj.myColor)
+    });
+
+    gsap.to(arr[0], {
+      a: 100,
+      duration: 2,
+      delay: 0,
+      repeatDelay: 3,
+      repeat: -1,
+      onUpdate: () => {
+        console.log('onUpdate', arr);
       },
-      onComplete: () => console.log('onComplete', obj.myNum, obj.myColor)
+      onComplete: () => console.log('onComplete', arr)
+    });
+
+    gsap.to(arr[1], {
+      a: 200,
+      onUpdate: () => {
+        console.log('onUpdate', arr);
+      },
+      onComplete: () => console.log('onComplete', arr)
     });
   }, []);
 

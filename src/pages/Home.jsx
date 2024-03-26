@@ -2,8 +2,8 @@
  * @Author: Hailie.Pan
  * @Date: 2023-11-28 10:02:42
  * @LastEditors: Hailie.Pan
- * @LastEditTime: 2024-01-11 10:35:24
- * @Description: 
+ * @LastEditTime: 2024-03-08 09:43:14
+ * @Description:
  */
 /*
  * Author  hailie.pan
@@ -12,17 +12,37 @@
  * LastEditTime  2023-11-28 10:02:23
  * Description  file content
  */
-import React, { useEffect } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
-import styles from "./home.less";
+import React, { useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import styles from './home.less';
 
-import coff from "@/assets/images/zz.png";
-import coffee from "@/assets/images/coffee.jpg";
+import coff from '@/assets/images/zz.png';
+import coffee from '@/assets/images/coffee.jpg';
+import { OCClientSDK, OCSDKMethodType } from '../utils/OCSDK';
 
 const Home = () => {
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  useEffect(() => {
+    const sdk = new OCClientSDK('player', {
+      url: 'http://10.2.30.185:5173'
+    });
+    sdk.onLoad(() => {
+      console.log('嵌入页面加载完成');
+    });
+
+    setTimeout(() => {
+      console.log('嵌入页面加载完成');
+      sdk.invoke(OCSDKMethodType.ChangeStation, '1705576338997', (e) => {
+        console.log('执行完毕', e);
+      });
+    }, 2000);
+
+    return () => {
+      sdk.destory();
+    };
+  }, []);
   useEffect(() => {
     const timeout = setTimeout(() => {
       // fetchList();
@@ -32,14 +52,14 @@ const Home = () => {
 
   const fetchList = async () => {
     const res = await api.home.fetchList({
-      appName: "",
+      appName: '',
       current: 1,
-      pageSize: 10,
+      pageSize: 10
     });
   };
 
   return (
-    <div className={styles?.wrapper}>
+    <div className={styles?.wrapper} id="player" style={{ border: '1px solid red' }}>
       <p>home页面</p>
 
       <ul>
